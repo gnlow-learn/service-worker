@@ -1,5 +1,9 @@
 import { $ } from "./src/util/el.ts"
 
+const regs = await navigator.serviceWorker.getRegistrations()
+
+await Promise.all(regs.map(reg => reg.unregister()))
+
 const reg = await navigator.serviceWorker.register(
     "worker.ts",
     {
