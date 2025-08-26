@@ -2,7 +2,10 @@ import { $ } from "./src/util/el.ts"
 
 const reg = await navigator.serviceWorker.register(
     "worker.ts",
-    { scope: "./" },
+    {
+        type: "module",
+        scope: "./",
+    },
 )
 
 console.log(reg)
